@@ -18,14 +18,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var costTextField: UITextField!
     
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBAction func dismissKeyBoard(_ sender: Any) {
+        view.endEditing(true)
+    }
     @IBAction func calculate(_ sender: Any) {
         if let dinerStr = dinersTextField.text,
             let costStr = costTextField.text,
             let diner = Double(dinerStr),
             let total = Double(costStr)
         {
-            resultLabel.text = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner))\n\nEach Diner pays: \(total/diner)"
+//            resultLabel.text = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
             }
     }
 }
