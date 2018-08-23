@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E58CFA3D212E7DD300D03957 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58CFA3C212E7DD300D03957 /* AppDelegate.swift */; };
 		E58CFA3F212E7DD300D03957 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58CFA3E212E7DD300D03957 /* ViewController.swift */; };
-		E58CFA42212E7DD300D03957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58CFA40212E7DD300D03957 /* Main.storyboard */; };
+		E58CFA42212E7DD300D03957 /* BillSplitter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58CFA40212E7DD300D03957 /* BillSplitter.storyboard */; };
 		E58CFA44212E7DD300D03957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E58CFA43212E7DD300D03957 /* Assets.xcassets */; };
 		E58CFA47212E7DD300D03957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58CFA45212E7DD300D03957 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,7 +18,7 @@
 		E58CFA39212E7DD300D03957 /* Bill Splitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bill Splitter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E58CFA3C212E7DD300D03957 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E58CFA3E212E7DD300D03957 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E58CFA41212E7DD300D03957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E58CFA41212E7DD300D03957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/BillSplitter.storyboard; sourceTree = "<group>"; };
 		E58CFA43212E7DD300D03957 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E58CFA46212E7DD300D03957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E58CFA48212E7DD300D03957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			children = (
 				E58CFA3C212E7DD300D03957 /* AppDelegate.swift */,
 				E58CFA3E212E7DD300D03957 /* ViewController.swift */,
-				E58CFA40212E7DD300D03957 /* Main.storyboard */,
+				E58CFA40212E7DD300D03957 /* BillSplitter.storyboard */,
 				E58CFA43212E7DD300D03957 /* Assets.xcassets */,
 				E58CFA45212E7DD300D03957 /* LaunchScreen.storyboard */,
 				E58CFA48212E7DD300D03957 /* Info.plist */,
@@ -124,7 +124,7 @@
 			files = (
 				E58CFA47212E7DD300D03957 /* LaunchScreen.storyboard in Resources */,
 				E58CFA44212E7DD300D03957 /* Assets.xcassets in Resources */,
-				E58CFA42212E7DD300D03957 /* Main.storyboard in Resources */,
+				E58CFA42212E7DD300D03957 /* BillSplitter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,12 +143,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E58CFA40212E7DD300D03957 /* Main.storyboard */ = {
+		E58CFA40212E7DD300D03957 /* BillSplitter.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E58CFA41212E7DD300D03957 /* Base */,
 			);
-			name = Main.storyboard;
+			name = BillSplitter.storyboard;
 			sourceTree = "<group>";
 		};
 		E58CFA45212E7DD300D03957 /* LaunchScreen.storyboard */ = {
