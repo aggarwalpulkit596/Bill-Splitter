@@ -15,20 +15,34 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var dinersTextField: UITextField!
-
+    var resulttext = ""
     @IBOutlet weak var costTextField: UITextField!
     
     @IBAction func dismissKeyBoard(_ sender: Any) {
         view.endEditing(true)
     }
     @IBAction func calculate(_ sender: Any) {
+       
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let destinationVC = segue.destination as! ResultViewController
+        destinationVC.finalText = resulttext
+
+}
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let dinerStr = dinersTextField.text,
             let costStr = costTextField.text,
             let diner = Double(dinerStr),
             let total = Double(costStr)
         {
-//            resultLabel.text = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
-            }
+         resulttext = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
+            return true
+        }
+        return false
+    }
+    @IBAction func dismissVC(segue :UIStoryboardSegue){
+        //to dismiss VC
     }
 }
 
