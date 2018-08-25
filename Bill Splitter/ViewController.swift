@@ -18,11 +18,29 @@ class ViewController: UIViewController {
     var resulttext = ""
     @IBOutlet weak var costTextField: UITextField!
     
+    @IBAction func calculatesegue(_ sender: Any) {
+        if let dinerStr = dinersTextField.text,
+            let costStr = costTextField.text,
+            let diner = Double(dinerStr),
+            let total = Double(costStr)
+        {
+            resulttext = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
+            if total > 100
+            {
+                performSegue(withIdentifier: "costly", sender: self)
+            }
+            else
+            {
+                performSegue(withIdentifier: "cheap", sender: self)
+            }
+
+        }
+        
+        performSegue(withIdentifier: "cheap", sender: self)
+
+    }
     @IBAction func dismissKeyBoard(_ sender: Any) {
         view.endEditing(true)
-    }
-    @IBAction func calculate(_ sender: Any) {
-       
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -30,6 +48,7 @@ class ViewController: UIViewController {
         destinationVC.finalText = resulttext
 
 }
+    /*
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let dinerStr = dinersTextField.text,
             let costStr = costTextField.text,
@@ -40,7 +59,7 @@ class ViewController: UIViewController {
             return true
         }
         return false
-    }
+    }*/
     @IBAction func dismissVC(segue :UIStoryboardSegue){
         //to dismiss VC
     }
