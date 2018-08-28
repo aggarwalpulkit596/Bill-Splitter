@@ -1,30 +1,82 @@
 //
 //  ViewController.swift
-//  Bill Splitter
+//  BillSplitter
 //
-//  Created by Pulkit Aggarwal on 23/08/18.
-//  Copyright © 2018 Maxx. All rights reserved.
+//  Created by Appkoder on 17/09/2016.
+//  Copyright © 2016 Appkoder. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var dinersTextfield: UITextField!
+    
+    @IBOutlet weak var totalCostTextfield: UITextField!
+    
+    var resultText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
-    @IBOutlet weak var dinersTextField: UITextField!
-    var resulttext = ""
-    @IBOutlet weak var costTextField: UITextField!
-    
-    @IBAction func calculatesegue(_ sender: Any) {
-        if let dinerStr = dinersTextField.text,
-            let costStr = costTextField.text,
-            let diner = Double(dinerStr),
-            let total = Double(costStr)
+
+    @IBAction func dismissKeyboard(_ sender: AnyObject) {
+        
+        view.endEditing(true)
+    }
+    /*
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        print("code ran")
+        if let dinerStr = dinersTextfield.text, let totalStr = totalCostTextfield.text, let diner = Double(dinerStr), let total = Double(totalStr)
         {
-            resulttext = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
+            let formattedTotal = String(format: "%.2f", total/diner)
+            let formattedCost = String(format: "%.2f", total)
+            
+            resultText = "The total cost of food is $\(formattedCost)\n\nNumber of diners: \(Int(diner))\n\nEach diner pays: $\(formattedTotal)"
+            
+            return true
+            
+        }
+        
+        return false
+        
+    }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let identifier = segue.identifier
+        {
+            if identifier == "cheap"
+            {
+                let navController = segue.destination as! UINavigationController
+                let destinationVC = navController.topViewController as! ResultViewController
+                
+                destinationVC.finalText = resultText
+
+            }
+//            else
+//            {
+//                let destination = segue.destination as! CostlyViewController
+//                destination.finalTextCostly = resultText
+//                destination.titleCostly = "Your dinner was expensive"
+//            }
+        }
+        
+    }
+    
+    
+    @IBAction func calculate(_ sender: AnyObject) {
+        
+        if let dinerStr = dinersTextfield.text, let totalStr = totalCostTextfield.text, let diner = Double(dinerStr), let total = Double(totalStr)
+        {
+            let formattedTotal = String(format: "%.2f", total/diner)
+            let formattedCost = String(format: "%.2f", total)
+            
+            resultText = "The total cost of food is $\(formattedCost)\n\nNumber of diners: \(Int(diner))\n\nEach diner pays: $\(formattedTotal)"
+            
             if total > 100
             {
                 performSegue(withIdentifier: "costly", sender: self)
@@ -33,35 +85,23 @@ class ViewController: UIViewController {
             {
                 performSegue(withIdentifier: "cheap", sender: self)
             }
-
+            
         }
         
-        performSegue(withIdentifier: "cheap", sender: self)
-
     }
-    @IBAction func dismissKeyBoard(_ sender: Any) {
-        view.endEditing(true)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        let destinationVC = segue.destination as! ResultViewController
-        destinationVC.finalText = resulttext
-
-}
-    /*
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let dinerStr = dinersTextField.text,
-            let costStr = costTextField.text,
-            let diner = Double(dinerStr),
-            let total = Double(costStr)
+    
+    @IBAction func helpClicked(_ sender: AnyObject) {
+        
+        if let helpVC = storyboard?.instantiateViewController(withIdentifier: "nav")
         {
-         resulttext = "The total cost of food is \(total)\n\nNumber of diners: \(Int(diner)) \n\nEach Diner pays: \(total/diner)"
-            return true
+            present(helpVC, animated: true, completion: nil)
         }
-        return false
-    }*/
-    @IBAction func dismissVC(segue :UIStoryboardSegue){
-        //to dismiss VC
+        
+    }
+    
+    @IBAction func dismissVC(segue: UIStoryboardSegue)
+    {
+        
     }
 }
 
